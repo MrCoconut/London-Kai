@@ -2,7 +2,7 @@
 
 A customised [Ghost](http://github.com/tryghost/ghost/) theme created for [JustPod](https://justpodnews.com/) under the request from Yang Yi. Post pages are built upon the theme [London](https://github.com/TryGhost/London) under the MIT license while the index page is basically original.
 
-**Demo: https://london.ghost.io**
+**Demo: https://justpodnews.com/**
 
 # Copyright & License
 
