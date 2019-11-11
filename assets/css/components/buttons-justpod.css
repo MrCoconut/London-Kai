@@ -1,0 +1,23 @@
+@import "vars.css";
+
+.button
+{
+	display: block;
+	color: var(--color-primary);
+	margin: 0 auto;
+	background: var(--color-justpod-base);
+	font-size: 16px;
+	padding: 10px 31px;
+	text-align: center;
+	font-style: normal;
+	border: none;
+  border-radius: 28px;
+	-moz-border-radius:28px;
+	-webkit-border-radius:28px;
+	margin-bottom: 10px;
+}
+
+
+.button:hover{
+	color: #6CBDEA;
+}

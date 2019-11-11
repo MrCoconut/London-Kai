@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="{{@site.lang}}">
+<head>
+
+    {{!-- Document Settings --}}
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    {{!-- Base Meta --}}
+    <title>{{meta_title}}</title>
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    {{!-- Styles'n'Scripts --}}
+    <link rel="stylesheet" type="text/css" href="{{asset "css/post.css"}}" />
+    <link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:500,600,700,900|Poppins&display=swap&subset=chinese-simplified" rel="stylesheet">
+
+    {{!-- This tag outputs SEO meta+structured data and other important settings --}}
+    {{ghost_head}}
+
+</head>
+<body class="{{body_class}}">
+
+    <div class="site-wrapper">
+
+        <header class="site-head">
+            <div class="site-head-container">
+                <div class="site-head-center">
+                    <a class="site-head-logo" href="assets/justpod_logo copy.png" alt="{{@site.title}}" /></a>
+                </div>
+            </div>
+        </header>
+
+        <main id="site-main" class="site-main">
+            <div id="swup" class="transition-fade">
+
+            {{!-- All the main content gets inserted here, index.hbs, post.hbs, etc --}}
+            {{#post}}
+            <article class="post-content {{post_class}} {{#unless feature_image}}no-image{{/unless}}">
+
+                <header class="post-content-header">
+                    <h1 class="post-content-title">{{title}}</h1>
+                </header>
+
+                <a class="sign arrow manualunderline" id="goback" href="{{@site.url}}">返回首页</a>
+
+                {{#if custom_excerpt}}
+                    <p class="post-content-excerpt">{{custom_excerpt}}</p>
+                {{/if}}
+
+                {{#if feature_image}}
+                <div class="post-content-image">
+                    <img class="kg-image" src="{{feature_image}}" alt="{{title}}" />
+                </div>
+                {{/if}}
+
+                <div class="post-content-body">
+                    {{content}}
+                </div>
+
+
+                </footer>
+
+                {{!--
+                <section class="post-content-comments">
+                    If you want to embed comments, this is a good place to do it!
+                </section>
+                --}}
+                <div class="footer">Written by Yang Yi in Shanghai. Coded with ❤︎ love ❤︎ by <a href="https://twitter.com/yezidashu">Ennis Yan</a> in London. Based on <a href="https://github.com/TryGhost/London">theme "London"</a> under MIT liscense.</div>
+            </article>
+            {{/post}}
+
+
+            <div id="bars-wrapper">
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+            </div>
+
+
+            {{!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs --}}
+            {{#contentFor "scripts"}}
+            <script>
+                var images = document.querySelectorAll('.kg-gallery-image img');
+                images.forEach(function (image) {
+                    var container = image.closest('.kg-gallery-image');
+                    var width = image.attributes.width.value;
+                    var height = image.attributes.height.value;
+                    var ratio = width / height;
+                    container.style.flex = ratio + ' 1 0%';
+                })
+            </script>
+            {{/contentFor}}
+
+            <script>
+              let bars = document.querySelectorAll('.bar');
+              console.log(bars.length);
+
+              function update() {
+                for (let bar of bars) {
+                  bar.style.height = `${Math.floor(Math.random() * 100)}px`;
+                }
+              }
+              setInterval(update, 1000);
+            </script>
+
+        </main>
+
+        {{!-- The footer at the very bottom of the screen
+        <footer class="site-foot">
+            &copy; {{date format="YYYY"}} <a href="{{@site.url}}">{{@site.title}}</a> &mdash; Published with <a href="https://ghost.org" target="_blank" rel="noopener">Ghost</a>
+        </footer>--}}
+
+    </div>
+
+    <script src="{{asset "built/swup.js"}}" data-swup-ignore-script></script>
+    <script src="{{asset "built/infinitescroll.js"}}" data-swup-ignore-script></script>
+    <script
+        src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous">
+    </script>
+
+    <div id="swup">
+        {{!-- The #block helper will pull in data from the #contentFor other template files. In this case, there's some JavaScript which we only want to use in post.hbs, but it needs to be included down here, after jQuery has already loaded. --}}
+        {{{block "scripts"}}}
+
+        {{!-- Ghost outputs important scripts and data with this tag - it should always be the very last thing before the closing body tag --}}
+        {{ghost_foot}}
+    </div>
+
+    {{!-- Handle swup content replacement --}}
+    <script data-swup-ignore-script>
+        $(document).ready(function () {
+            // Mobile Menu Trigger
+            $('.nav-burger').click(function () {
+                $('body').toggleClass('site-head-open');
+            });
+        });
+        // Initiate Swup transitions
+        var swup = new Swup({
+            plugins: [new SwupHeadPlugin(), new SwupScriptsPlugin()],
+        });
+        document.addEventListener('swup:contentReplaced', event => {
+            initInfiniteScroll(window, document);
+            $('body').removeClass('site-head-open');
+        });
+    </script>
+
+</body>
+</html>

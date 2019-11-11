@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+
+<head>
+
+  {{!-- Document Settings --}}
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="theme-color" content="#1E1E1E">
+
+  {{!-- Base Meta --}}
+  <title>{{meta_title}}</title>
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  {{!-- Styles'n'Scripts --}}
+  <link rel="stylesheet" type="text/css" href="{{asset "css/normalize.css"}}" />
+  <link rel="stylesheet" type="text/css" href="{{asset "css/screen.css"}}" />
+  <link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:500,600,700,900|Poppins&display=swap&subset=chinese-simplified" rel="stylesheet">
+
+  {{!-- This tag outputs SEO meta+structured data and other important settings --}}
+  {{ghost_head}}
+
+</head>
+
+<body class="{{body_class}}">
+
+  <div class="site-head container">
+
+    <!--Icon Banner-->
+    <div>
+      <img src="{{asset "justpod_logo.png"}}" alt="JustPod Logo" width="300px" id="logo">
+      <a href="https://weibo.com/justpod">
+        <img src="{{asset "weibo.svg"}}" alt="Weibo" width="35px" id="weibo">
+      </a>
+      <a href="http://twitter.com/yang1989yi">
+        <img src="{{asset "twitter.svg"}}" alt="twitter" width="30px" id="twitter">
+      </a>
+    </div>
+
+    <!--Site Introduction-->
+    <div class="grid" id="intro">
+      <div id="about">
+        「播客一下」媒体计划，是「<a href="http://justpodnews.com" class="inlinearrow">JustPod</a>」的一部分，致力于持续追踪播客领域的动态，并在中文世界建立起与全球播客生态联通的桥梁。
+        <a class="sign arrow manualunderline" href="http://justpodmedia.com">关于播客一下</a>
+      </div>
+      <div id="subscription">
+        <!--<label for="email" class="sr-only"> Email </label>-->
+        <form id="subscribe-form" method="post" action="https://tinyletter.com/justpod">
+          <input type="email" id="email" name="email" value="" placeholder="输入您的邮箱地址">
+          <button class="button sign rec manualunderline" type="submit">点击订阅</button>
+          <a class="sign arrow manualunderline" href="{{@site.url}}/rss">RSS 地址</a>
+        </form>
+      </div>
+    </div>
+
+    <!--Bars Animation-->
+    <div id="bars-wrapper">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+
+    <script>
+      let bars = document.querySelectorAll('.bar');
+      console.log(bars.length);
+
+      function update() {
+        console.log()
+        for (let bar of bars) {
+          console.log(bar);
+          bar.style.height = `${Math.floor(Math.random() * 100)}px`;
+        }
+      }
+      setInterval(update, 1000);
+    </script>
+  </div>
+
+  <div class="post-feed container grid">
+    {{#foreach posts}}
+      <div class="post">
+        <div class="metadata">
+          <p><time datetime="{{date format="YYYY-MM-DD"}}"> {{date format="YYYY MM DD"}} </time><span class="author">/ {{authors}}</span></p>
+        </div>
+        <a href="{{url}}" class="head manualunderline">{{title}}</a>
+        <p class="content">{{content words="10"}}</p>
+      </div>
+    {{/foreach}}
+  </div>
+
+  <div class="footer">Written by Yang Yi in Shanghai. Coded with ❤︎ love ❤︎ by <a href="https://twitter.com/yezidashu">Ennis Yan</a> in London. Based on <a href="https://github.com/TryGhost/London">theme "London"</a> under MIT liscense.</div>
+
+  <body>

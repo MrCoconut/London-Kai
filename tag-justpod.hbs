@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+
+<head>
+
+    {{!-- Document Settings --}}
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    {{!-- Base Meta --}}
+    <title>{{meta_title}}</title>
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    {{!-- Styles'n'Scripts --}}
+    <link rel="stylesheet" type="text/css" href="{{asset "css/justpod.css"}}" />
+    <link media="(max-width:1250px)" rel="stylesheet" type="text/css" href="{{asset "css/justpod_tablet.css"}}">
+    <link media="(max-width:730px)" rel="stylesheet" type="text/css" href="{{asset "css/justpod_mobile.css"}}">
+
+    {{!-- This tag outputs SEO meta+structured data and other important settings --}}
+    {{ghost_head}}
+
+</head>
+
+<body class="{{body_class}}">
+
+    <div class="header">
+        <img id="logo" src="{{asset "justpod_logo.png"}}" alt="播客一下" width=250px>
+    </div>
+
+    <div id="circle">
+    </div>
+
+    <div class="intro">
+        <div id="slogan">
+            <h1>A TRADE NEWSLETTER ABOUT PODCASTING IN <span id="highlight">CHINESE<span>!</h1>
+            <div>
+                <a class="clickable_white" href="https://tinyletter.com/justpod/archive">查看往期 Newsletter</a>
+            </div>
+        </div>
+        <div id="subscription">
+            <h2>楊 · 壹 · 原 · 創<br>速 · 速 · 訂 · 閱</h2>
+            <form id="subscribe-form" method="post" action="https://tinyletter.com/justpod">
+                <div class="email-group">
+                    <input type="email" id="email" name="email" value="" placeholder="您的电子邮箱地址？">
+                    <button class="button" type="submit"> Subscribe </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="about">
+        <div>
+            <p id="description">播客一下 Newsletter 媒体计划，是“JustPod”的一部分，我们致力于持续追踪中文播客领域的动态，并在中文世界建立起与全球播客生态联通的桥梁。</p>
+            <a class="clickable_red" href="https://tinyletter.com/justpod/archive">前往 JustPod</a>
+        </div>
+        <div>
+            <h2 id="quote">“中文播客其实是一个严重被低估的市场，它有着巨大的商业化可能。”——杨一</h2>
+        </div>
+    </div>
+
+    <h2 id="blog">Blog</h2>
+
+
+    <div class="post-feed">
+      <hr>
+        {{#foreach posts}}
+            <article class="post">
+                <h2 class="post-title"><a href="{{url}}">{{title}}</a></h2>
+                <p class="excerpt">/ {{excerpt words="50"}} /</p>
+                <p class="content-preview">{{content words="3"}}</p>
+            </article>
+            <hr>
+        {{/foreach}}
+    </div>
+
+
+    {{!-- The #block helper will pull in data from the #contentFor other template files. In this case, there's some JavaScript which we only want to use in post.hbs, but it needs to be included down here, after jQuery has already loaded. --}}
+    {{{block "scripts"}}}
+
+    {{!-- Ghost outputs important scripts and data with this tag - it should always be the very last thing before the closing body tag --}}
+    {{ghost_foot}}
+
+</body>
+
+</html>
