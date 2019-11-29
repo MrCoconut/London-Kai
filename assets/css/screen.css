@@ -9,7 +9,7 @@ body {
 }
 
 a {
-  color: inherit;
+  color: var(--color-primary);
 }
 
 .container {
