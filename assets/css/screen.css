@@ -307,3 +307,12 @@ time {
     margin-bottom: 15px;
   }
 }
+
+.kg-image-card{
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.kg-image{
+  width: 100%;
+}
