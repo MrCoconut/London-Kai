@@ -2,14 +2,14 @@
 @import "common.css";
 
 body {
-  background-color: var(--color-justpod-base);
+  background-color: var(--color-justpod-bg);
   padding: none;
   margin: none;
   font-family: "SF Pro SC", "SF Pro Display", "SF Pro Icons", "PingFang SC", "Source Han Sans SC", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 }
 
 a {
-  color: var(--color-primary);
+  color: var(--color-primary)
 }
 
 .container {
@@ -39,6 +39,15 @@ a {
 
 .post {
   font-size: 17px;
+  background-color: var(--color-justpod-base);
+  border: 2px solid var(--color-primary);
+  border-radius: 20px;
+  padding: 20px;
+  transition: background-color 0.2s ease-in-out 0.01s;
+}
+
+.post:hover{
+  background-color: #F8BEBF;
 }
 
 @media (max-width: 1069px) {
@@ -62,14 +71,32 @@ a {
   padding-bottom: 0;
 }
 
-.grid {
+.grid-2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 50px;
 }
 
 @media (max-width: 740px) {
-  .grid {
+  .grid-2 {
+    grid-template-columns: 1fr;
+    grid-gap: 25px;
+  }
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 50px;
+}
+@media (max-width: 1200px) {
+  .grid-3 {
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 50px;
+  }
+}
+@media (max-width: 740px) {
+  .grid-3 {
     grid-template-columns: 1fr;
     grid-gap: 25px;
   }
@@ -273,8 +300,10 @@ select:-webkit-autofill:focus {
 }
 
 .post-feed {
-  background-color: var(--color-justpod-base);
   font-size: 40px;
+  border-top: 2px solid var(--color-primary);
+  border-bottom: 2px solid var(--color-primary);
+  background-color: var(--color-justpod-base);
 }
 
 time {
@@ -315,4 +344,12 @@ time {
 
 .kg-image{
   width: 100%;
+}
+
+.content{
+  color: var(--color-justpod-bg);
+}
+
+.dot{
+  color: var(--color-primary);
 }

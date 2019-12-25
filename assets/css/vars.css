@@ -7,9 +7,10 @@
 
     /* Colours */
     --color-primary: #ED6062;
+    --color-hover: #F8BEBF;
     --color-justpod-bg: #262626;
-    --color-justpod-base: #FFFFFF;
-    --color-footer-base: #54575A;
+    --color-justpod-base: #FFFFFC;
+    --color-postfeed-base: #393939;
 
     /* Fonts */
     --font-sans-serif: 'Muli', sans-serif;
